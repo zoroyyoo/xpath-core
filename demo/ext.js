@@ -5,7 +5,7 @@
 async function getPlayUrl(url) {
     const response = await $fetch(`https://gimy.tv/${url}`);
     const html = await response.text();
-    const document = DOMParser(html);
+    const { document } = DOMParser(html);
     const $script = xpath(document, [
         "//div[contains(@class, 'myui-player__video')]/script"
     ])[0];
