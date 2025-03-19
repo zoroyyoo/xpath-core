@@ -124,7 +124,7 @@ async function home() {
 
             const $items = xpath(
                 $row,
-                globalThis.config.home_vod_node.replace(/{index}/g, i)
+                globalThis.config.home_vod_node.replace(/{index}/g, i + 1)
             );
             $items.forEach($item => {
                 const vod_id = parseXpathText($item, "home_vod_id");
@@ -211,7 +211,7 @@ async function detail(params) {
                 };
                 const $links = xpath(
                     $source,
-                    globalThis.config.detail_url_node.replace(/{index}/g, i)
+                    globalThis.config.detail_url_node.replace(/{index}/g, i + 1)
                 );
                 source.vod_play_list.url_count = $links.length;
                 $links.forEach($link => {
